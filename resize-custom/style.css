@@ -1,0 +1,571 @@
+/* ====================
+   RESET
+==================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #08080a;
+  color: #fff;
+  font-family:
+    Arial,
+    "Noto Sans JP",
+    sans-serif;
+}
+
+
+/* ====================
+   HEADER
+==================== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 110px;
+
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+
+  background: rgba(8, 8, 10, 0.2);
+
+  transition:
+    height 0.4s ease,
+    background 0.4s ease,
+    border 0.4s ease;
+}
+
+
+/* スクロール後 */
+
+header.small {
+  height: 70px;
+
+  background: rgba(8, 8, 10, 0.95);
+
+  border-bottom: 1px solid #333;
+}
+
+
+/* ロゴ */
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo span {
+  font-size: 32px;
+
+  font-weight: bold;
+
+  letter-spacing: 4px;
+}
+
+.logo small {
+  margin-top: 3px;
+
+  color: #b45cff;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+}
+
+
+/* ナビ */
+
+nav ul {
+  display: flex;
+
+  gap: 30px;
+
+  list-style: none;
+}
+
+nav a {
+  position: relative;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+}
+
+
+/* ナビの下線 */
+
+nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+
+  background: #b45cff;
+
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* ====================
+   HERO
+==================== */
+
+.hero {
+  height: 100vh;
+
+  min-height: 600px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("images/chevon.jpg")
+    center / cover no-repeat;
+}
+
+
+/* HERO中央 */
+
+.hero-content p {
+  margin-bottom: 25px;
+
+  color: #c16aff;
+
+  font-size: 12px;
+
+  letter-spacing: 7px;
+}
+
+.hero h1 {
+  font-size: clamp(
+    80px,
+    15vw,
+    180px
+  );
+
+  line-height: 0.9;
+
+  letter-spacing: -6px;
+}
+
+.hero-content span {
+  display: block;
+
+  margin-top: 35px;
+
+  font-size: 14px;
+
+  letter-spacing: 5px;
+}
+
+
+/* ====================
+   CONTENT
+==================== */
+
+.content {
+  min-height: 600px;
+
+  padding: 150px 10%;
+
+  background: #f5f5f5;
+
+  color: #111;
+}
+
+.content.dark {
+  background: #111116;
+
+  color: #fff;
+}
+
+
+/* セクション番号 */
+
+.section-number {
+  color: #a855f7;
+
+  font-size: 13px;
+
+  letter-spacing: 3px;
+}
+
+
+/* 見出し */
+
+h2 {
+  margin-top: 10px;
+
+  margin-bottom: 60px;
+
+  font-size: clamp(
+    50px,
+    8vw,
+    100px
+  );
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+}
+
+
+/* ====================
+   ABOUT
+==================== */
+
+.about-text {
+  max-width: 700px;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+
+  line-height: 2;
+
+  font-size: 16px;
+}
+
+
+/* ====================
+   MEMBER
+==================== */
+
+.members {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+/* メンバーカード */
+
+.member {
+  position: relative;
+
+  height: 450px;
+
+  overflow: hidden;
+
+  background: #222;
+}
+
+
+/* メンバー写真 */
+
+.member img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.7;
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+
+/* ホバー */
+
+.member:hover img {
+  transform: scale(1.08);
+
+  opacity: 1;
+}
+
+
+/* 写真の上の黒グラデーション */
+
+.member::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      transparent 40%,
+      rgba(0, 0, 0, 0.9)
+    );
+}
+
+
+/* メンバー情報 */
+
+.member-info {
+  position: absolute;
+
+  left: 30px;
+  bottom: 30px;
+
+  z-index: 2;
+}
+
+.member-info span {
+  color: #c16aff;
+
+  font-size: 13px;
+}
+
+.member-info h3 {
+  margin-top: 8px;
+
+  font-size: 28px;
+
+  letter-spacing: 2px;
+}
+
+
+/* ====================
+   MUSIC
+==================== */
+
+.music-list {
+  max-width: 900px;
+}
+
+.music-item {
+  display: grid;
+
+  grid-template-columns:
+    60px 1fr auto;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding: 30px 0;
+
+  border-bottom: 1px solid #ccc;
+
+  transition: 0.3s;
+}
+
+.music-item:hover {
+  padding-left: 15px;
+
+  color: #a855f7;
+}
+
+.music-item span {
+  color: #a855f7;
+}
+
+.music-item h3 {
+  font-size: 24px;
+}
+
+.music-item p {
+  color: #777;
+}
+
+
+/* ====================
+   LIVE
+==================== */
+
+.live-list {
+  max-width: 900px;
+}
+
+.live-item {
+  display: flex;
+
+  gap: 60px;
+
+  padding: 30px 0;
+
+  border-bottom: 1px solid #333;
+}
+
+.live-item > span {
+  min-width: 120px;
+
+  color: #b45cff;
+}
+
+.live-item h3 {
+  margin-bottom: 8px;
+}
+
+.live-item p {
+  color: #999;
+}
+
+
+/* ====================
+   NEWS
+==================== */
+
+.news-list {
+  max-width: 900px;
+}
+
+.news-list article {
+  display: flex;
+
+  gap: 50px;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid #ccc;
+}
+
+.news-list time {
+  color: #a855f7;
+
+  min-width: 100px;
+}
+
+
+/* ====================
+   FOOTER
+==================== */
+
+footer {
+  padding: 80px 10%;
+
+  background: #050506;
+}
+
+footer p {
+  font-size: 45px;
+
+  font-weight: bold;
+
+  letter-spacing: 4px;
+}
+
+footer small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #a855f7;
+
+  letter-spacing: 3px;
+}
+
+
+/* ====================
+   RESPONSIVE
+==================== */
+
+@media (max-width: 768px) {
+
+  header {
+    height: 80px;
+
+    padding: 0 5%;
+  }
+
+  header.small {
+    height: 65px;
+  }
+
+
+  .logo span {
+    font-size: 23px;
+  }
+
+
+  nav ul {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 9px;
+  }
+
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+
+
+  .content {
+    padding: 100px 7%;
+  }
+
+
+  .members {
+    grid-template-columns: 1fr;
+  }
+
+
+  .member {
+    height: 400px;
+  }
+
+
+  .music-item {
+    grid-template-columns:
+      40px 1fr;
+  }
+
+  .music-item p {
+    display: none;
+  }
+
+
+  .live-item {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+
+  .news-list article {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+}
